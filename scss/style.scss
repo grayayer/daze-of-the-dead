@@ -1,0 +1,208 @@
+/*
+Theme Name:     Daze
+Theme URI:      http://www.gavick.com
+Description:    Child theme for the Fest theme 
+Author:         GavickPro
+Author URI:     http://www.gavick.com
+Template:       Fest
+Version:        1.12
+*/
+
+$bright_yellow: #fad515;
+$link_color: $bright_yellow;
+$primary_text_color: $bright_yellow;
+$bright_orange: #FF6515;
+$accent_orange: #ff9b21;
+$bg_color: #051646;
+$body_text_color: #FFF;
+$intense_red: #8c1346;
+$red_text: #ca224f;
+$grey_text: #454545;
+
+html {
+
+body.page-template-template-event-php p:empty {
+	display: none;
+}
+
+.gk-animation h2.subtitle {
+	padding-top: 0;
+	color: #D1D1D1;
+}
+
+body {
+	background: url('images/faded_bg_interior.jpg') $bg_color no-repeat center top !important;
+}
+
+.gk-page-wrap, #gk-bottom-wrap {
+	background: transparent !important;
+	background-image: none !important;
+}
+
+.gk-page-wrap {
+	color: $body_text_color;
+	text-shadow: 1px 1px rgba(0,0,0,.8);
+	.gk-schedule, time {
+		text-shadow:none;
+	}
+}
+
+
+/*i don't know whwat the fuck this supposed to do, but I don't like it */
+.content dl.post-fields {
+	display: none;
+}
+
+/*typography */
+
+@import 'typography-override';
+
+a {
+	color: $bright_yellow;
+	&:hover {
+		color: lighten($bright_orange, 5%);
+	}
+}
+
+h1, h2, h3, h4, h5, h6,
+article header h1 a, article header h2 a {
+	color: $primary_text_color;
+	text-shadow: 2px 2px 3px rgba(0,0,0,.8);			
+}
+
+article header h1 a, article header h2 a {
+	&:hover {
+		color: $bright_orange;
+	}
+}
+
+.gk-schedule dd > div > div {
+	color: $grey_text;
+	strong {
+		color: $intense_red;
+	}
+}
+
+@import 'buttons';
+
+a.button {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+
+
+/*header */
+
+#gk-header-top {
+margin: 1rem 0;
+	a.imageLogo, a.imageLogo img {
+		//float: none;
+		//margin: 0 auto;
+	}
+}
+
+#gk-header-top {
+	margin: 0;
+	background: rgba(0, 0, 0, 0.3);
+	padding: .5rem;
+	margin-left: -4%;
+	width: 105%;
+}
+
+/*other elements */
+
+#gk-breadcrumbs {
+	background: rgba(0, 0, 0, 0.4);
+	border-bottom: 1px solid #999;
+	a:hover {
+		color: $bright_orange;
+	}
+}
+
+
+#gk-social a {
+	background: transparent url('images/social_icons.png') no-repeat 0 0;
+	opacity: 0.9;
+}
+
+/* FOOTER */
+#gk-footer .gk-copyrights {
+	color: #e0e0e0;
+	text-shadow: 1px 1px rgba(0,0,0,.8);	
+}
+
+/*homepage */
+body.home {
+	background: url('images/faded_bg_homepage.jpg') $bg_color no-repeat center top !important;
+
+	div.gk-page h1.site_logo {
+		display: none;
+	}
+
+	#gk-header-top {
+		background: transparent;
+		padding: inherit;
+		margin: 2rem 0 -40px 0;
+		width: 100%;		
+	}
+
+	.gk-animation-wrap {
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+	}
+
+	.gk-jscounter > div {
+		 > small , > strong {
+			color: #FFF;
+			text-shadow: 1px 1px 3px rgba(0,0,0,.8);
+		}
+	}
+}
+
+
+/* ARTISTS */
+.gkw-speakers .gkw-speaker-small h4, .speakers-page .gk-speaker h2 {
+		a {
+			color: $bright_yellow;
+			text-shadow: 1px 1px 3px rgba(0,0,0,.8);			
+			&:hover {
+				color: darken($bright_yellow, 20%);
+			}
+		}
+	}
+
+/*news display in footer*/
+body .gk-nsp-news_grid hr.separator {
+margin: 5px !important;
+padding: 0!important;
+}
+
+body.home .gk-page-wrap.gk-speakers-exist #gk-speakers {
+margin-top: -306px;
+}
+
+.gk-nsp-art .gk-nsp-image-wrap {
+	padding-right: 2em;
+	box-sizing: border-box;
+}
+
+div.gk-nsp-content-wrap .gk-nsp-category, div.gk-nsp-content-wrap .gk-nsp-date {
+	display: none;
+}
+
+/*SCHEDULE PAGE */
+.gk-schedule dt strong {
+	color: $accent_orange;
+}
+
+
+/***** MOBILE STUFF ******/
+
+#main-menu-mobile {
+	border: none;
+}
+
+}//ends the html tag addition
