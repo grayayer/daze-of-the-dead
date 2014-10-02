@@ -22,14 +22,18 @@
 	<!-- gray had to add this for my customizations to show up and for the standard style.css to load -->
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ; ?>/style.css" />
 
+
+<!-- removed so that I concatanate them  in the style.css file
 	<?php
-	    wp_enqueue_style('gavern-normalize', gavern_file_uri('css/normalize.css'), false);
-	    wp_enqueue_style('gavern-template', gavern_file_uri('css/template.css'), array('gavern-normalize'));
-	    wp_enqueue_style('gavern-wp', gavern_file_uri('css/wp.css'), array('gavern-template'));
-	    wp_enqueue_style('gavern-stuff', gavern_file_uri('css/stuff.css'), array('gavern-wp'));
-	    wp_enqueue_style('gavern-wpextensions', gavern_file_uri('css/wp.extensions.css'), array('gavern-stuff'));
-	    wp_enqueue_style('gavern-extensions', gavern_file_uri('css/extensions.css'), array('gavern-wpextensions'));
-	?>
+//	    wp_enqueue_style('gavern-normalize', gavern_file_uri('css/normalize.css'), false);
+//	    wp_enqueue_style('gavern-template', gavern_file_uri('css/template.css'), array('gavern-normalize'));
+//	    wp_enqueue_style('gavern-wp', gavern_file_uri('css/wp.css'), array('gavern-template'));
+//	    wp_enqueue_style('gavern-stuff', gavern_file_uri('css/stuff.css'), array('gavern-wp'));
+//	    wp_enqueue_style('gavern-wpextensions', gavern_file_uri('css/wp.extensions.css'), array('gavern-stuff'));
+//	    wp_enqueue_style('gavern-extensions', gavern_file_uri('css/extensions.css'), array('gavern-wpextensions'));
+	?> -->
+
+	
 	<!--[if IE 9]>
 	<link rel="stylesheet" href="<?php echo gavern_file_uri('css/ie9.css'); ?>" />
 	<![endif]-->
@@ -65,7 +69,15 @@
 	
 	<?php do_action('gavernwp_fonts'); ?>
 	<?php gk_head_config(); ?>
-	<?php wp_enqueue_script("jquery"); ?>
+	<?//php wp_enqueue_script("jquery"); ?>
+
+	<?php if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+	function my_jquery_enqueue() {
+	   wp_deregister_script('jquery');
+	   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js", false, null);
+	   wp_enqueue_script('jquery');
+	}
+	?>
 	
 	<?php
 	    wp_enqueue_script('gavern-scripts', gavern_file_uri('js/gk.scripts.js'), array('jquery'), false, true);
@@ -80,6 +92,8 @@
 			)
 		); 
 	?>
+
+
 </head>
 <body <?php do_action('gavernwp_body_attributes'); ?>>
 	<div id="gk-page-top">

@@ -198,6 +198,9 @@ div.gk-nsp-content-wrap .gk-nsp-category, div.gk-nsp-content-wrap .gk-nsp-date {
 	color: $accent_orange;
 }
 
+.gk-schedule dd > div > div {
+	clear: both;
+}
 
 /***** MOBILE STUFF ******/
 
@@ -206,3 +209,10 @@ div.gk-nsp-content-wrap .gk-nsp-category, div.gk-nsp-content-wrap .gk-nsp-date {
 }
 
 }//ends the html tag addition
+
+@import 'normalize',
+'template',
+'wp',
+'stuff',
+'wp.extensions',
+'extensions';

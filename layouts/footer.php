@@ -53,5 +53,8 @@
 	<?php wp_footer(); ?>
 	
 	<?php do_action('gavernwp_ga_code'); ?>
+	<script>
+		jQuery(document).foundation();
+	</script>
 </body>
 </html>
